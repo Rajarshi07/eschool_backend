@@ -21,4 +21,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('grade/<str:grade>', views.grade_view.as_view()),
     path('teacher_form/', views.teacher_form.as_view()),
+    path('intern_form/', views.intern_form.as_view()),
+    path('course/<int:course_id>', views.course_view.as_view())
 ]

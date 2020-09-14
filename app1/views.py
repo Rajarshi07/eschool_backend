@@ -1,5 +1,5 @@
 from .models import course, teacher_form, intern_form
-from .serializers import CourseSerializer, TeacherFormSerializer, InternFormSerializer
+from .serializers import *
 from django.http import Http404
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -11,8 +11,16 @@ class grade_view(APIView):
 
 	def get(self, request, grade, format = None):
 		class_courses = course.objects.filter(grade = grade)
-		serialized = CourseSerializer(class_courses, many=True)
+		serialized = GradeSerializer(class_courses, many=True)
 		return Response(serialized.data)
+
+class course_view(APIView):
+
+	def get(self, request,course_id, format = None):
+		current_course = course.objects.filter(id = course_id)
+		serialized = CourseSerializer(current_course, many = True)
+		return Response(serialized.data)
+
 
 class teacher_form(APIView):
 
