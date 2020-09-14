@@ -19,6 +19,6 @@ from app1 import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('search/<str:val>', views.search.as_view()),
-    path('', views.course_view.as_view())
+    path('grade/<str:grade>', views.grade_view.as_view()),
+    path('teacher_form/', views.teacher_form.as_view()),
 ]

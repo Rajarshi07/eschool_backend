@@ -1,4 +1,4 @@
-from .models import school, course, subscription_plan, subscription_course
+from .models import course, teacher_form, intern_form
 from rest_framework import serializers
 
 class CourseSerializer(serializers.ModelSerializer):
@@ -6,8 +6,12 @@ class CourseSerializer(serializers.ModelSerializer):
 		model = course
 		fields = "__all__"
 
-
-class SearchSerializer(serializers.ModelSerializer):
+class TeacherFormSerializer(serializers.ModelSerializer):
 	class Meta:
-		model = course
-		fields = ['name','id']
+		model = teacher_form
+		fields = "__all__"
+
+class InternFormSerializer(serializers.ModelSerializer):
+	class Meta:
+		model = intern_form
+		fields = "__all__"
